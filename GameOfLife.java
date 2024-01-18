@@ -30,8 +30,8 @@ public class GameOfLife {
 		int[][] board = read(fileName);
 		//// Write here code that tests that the count and cellValue functions
 		//// are working properly, and returning the correct values.
-		for (int i = 0; i < board.length - 2; i++) {
-			for (int j = 0; j < board[i].length - 2; j++) {
+		for (int i = 1; i < board.length - 1; i++) {
+			for (int j = 1; j < board[i].length - 1; j++) {
 				System.out.printf("cell[%d[%d] value will be: " + cellValue(board, i, j) + "%n", i, j);
 				System.out.printf("amount of neighbors: " + count(board, i, j) + "%n");
 				print(board);
@@ -150,8 +150,8 @@ public class GameOfLife {
 	public static int count(int[][] board, int i, int j) {
 		//// Replace the following statement with your code.
 		int res = 0;
-		for (int row = 0; row < board.length - 2; row++) {
-			for (int col = 0; col < board[0].length - 2; col++) {
+		for (int row = 1; row < board.length - 1; row++) {
+			for (int col = 1; col < board[0].length - 1; col++) {
 				if (Math.abs(row - i) < 2 && Math.abs(col - j) < 2) {
 					if (board[row][col] == 1) {
 						if (!(row == i && col == j)) {
@@ -167,8 +167,8 @@ public class GameOfLife {
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
 	public static void print(int[][] arr) {
 		//// Write your code here.
-		for (int i = 0; i < arr.length; i++) {
-			for (int j = 0; j < arr[0].length; j++) {
+		for (int i = 1; i < arr.length - 1; i++) {
+			for (int j = 1; j < arr[0].length - 1; j++) {
 				System.out.printf("%3s", arr[i][j]);
 			}
 			System.out.printf("%n");
