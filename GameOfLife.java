@@ -168,7 +168,7 @@ public class GameOfLife {
 		//// Write your code here.
 		for (int i = 0; i < arr.length - 2; i++) {
 			for (int j = 0; j < arr[0].length - 2; j++) {
-				System.out.printf("%3d ", arr[i][j]);
+				System.out.printf("%3s", arr[i][j]);
 			}
 			System.out.printf("%n");
 		}
