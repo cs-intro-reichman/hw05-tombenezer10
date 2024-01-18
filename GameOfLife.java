@@ -15,6 +15,7 @@ public class GameOfLife {
 		// test2(fileName);
 		// test3(fileName, 3);
 		play(fileName);
+		// print(read(fileName));
 	}
 
 	// Reads the data file and prints the initial board.
@@ -80,15 +81,15 @@ public class GameOfLife {
 		int[][] board = new int[rows + 2][cols + 2];
 		//// Replace the following statement with your code.
 
-		for (int i = 0; i < rows + 2; i++) {
+		for (int i = 1; i < board.length; i++) {
 			String pattern = in.readLine();
 			if (pattern != null) {
-				for (int j = 0; j < cols + 2; j++) {
-					if (pattern.length() > j) {
-						if (pattern.charAt(j) == 'x') {
-							board[i][j] = 1;
-						}
+				for (int j = 1; j <= pattern.length(); j++) {
+					// if (pattern.length() > j) {
+					if (pattern.charAt(j - 1) == 'x') {
+						board[i][j] = 1;
 					}
+					// }
 				}
 			}
 		}
@@ -166,8 +167,8 @@ public class GameOfLife {
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
 	public static void print(int[][] arr) {
 		//// Write your code here.
-		for (int i = 0; i < arr.length - 2; i++) {
-			for (int j = 0; j < arr[0].length - 2; j++) {
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[0].length; j++) {
 				System.out.printf("%3s", arr[i][j]);
 			}
 			System.out.printf("%n");
