@@ -85,6 +85,7 @@ public class GameOfLife {
 			String pattern = in.readLine();
 			if (pattern != null) {
 				for (int j = 1; j <= pattern.length(); j++) {
+					// #feedback - please remove unused code before submitting
 					// if (pattern.length() > j) {
 					if (pattern.charAt(j - 1) == 'x') {
 						board[i][j] = 1;
@@ -104,6 +105,7 @@ public class GameOfLife {
 		int rows = board.length;
 		int cols = board[0].length;
 		int[][] res = new int[rows][cols];
+		// #feedback - the first row and column should have 0, so these loops should start with 1 (and end with -1).
 		for (int i = 0; i < board.length - 2; i++) {
 			for (int j = 0; j < board[0].length - 2; j++) {
 				res[i][j] = cellValue(board, i, j);
@@ -127,6 +129,7 @@ public class GameOfLife {
 		//// Replace the following statement with your code.
 		int neighbors = count(board, i, j);
 		if (board[i][j] == 1) {
+			// #feedback - the first "if" is not needed, 0 is returned in the "else".
 			if (neighbors < 2) {
 				return 0;
 			} else if (neighbors == 3 || neighbors == 2) {
@@ -150,6 +153,7 @@ public class GameOfLife {
 	public static int count(int[][] board, int i, int j) {
 		//// Replace the following statement with your code.
 		int res = 0;
+		// #feedback - there is no need to iterate on the whole board, since it's not efficient. You can just iterate from i-1 to i+1, and j-1 to j+1.
 		for (int row = 1; row < board.length - 1; row++) {
 			for (int col = 1; col < board[0].length - 1; col++) {
 				if (Math.abs(row - i) < 2 && Math.abs(col - j) < 2) {
